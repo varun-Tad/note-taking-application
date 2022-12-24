@@ -1,0 +1,104 @@
+@use "./abstracts" as a;
+
+@function weight($weight-name) {
+  @return map-get(a.$font-weights, $weight-name);
+}
+
+.intro-page-container {
+  display: flex;
+  height: 90vh;
+  width: 95vw;
+  border-radius: 1rem;
+  padding-bottom: 2rem;
+  margin: 0 auto;
+  font-family: sans-serif;
+  margin-top: 2rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  .left-side {
+    width: 50%;
+
+    .left-side-inner {
+      height: 90vh;
+      width: 50%;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: 4rem;
+      @include a.flex(column);
+      justify-content: space-evenly;
+
+      span,
+      .colored-h2 {
+        color: a.$primary-color;
+      }
+    }
+  }
+
+  .right-side {
+    width: 60%;
+    // border: 1px solid black;
+    .intro-img-container {
+      margin-top: 7rem;
+      //   border: 1px solid pink;
+    }
+  }
+}
+
+.heading h1 {
+  font-size: 3.2rem;
+}
+
+.para h2 {
+  margin: 0;
+}
+
+.footer {
+  @include a.flex(column);
+}
+
+.joinNow-btn {
+  width: 50%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  color: a.$color-white;
+  background-color: a.$primary-color;
+  font-weight: weight(bold);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  border: none;
+}
+
+.signOut-btn,
+.signIn-btn {
+  margin-top: 1.5rem;
+  color: a.$color-white;
+  background-color: a.$primary-color;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.signOut-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1.5rem;
+}
+
+.footer {
+  a {
+    text-decoration: none;
+    color: a.$primary-color;
+    cursor: pointer;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.takeNote-btn {
+  color: a.$color-white;
+  background-color: a.$primary-color;
+  padding: 0.5em;
+  cursor: pointer;
+}
