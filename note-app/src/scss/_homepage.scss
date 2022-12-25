@@ -1,0 +1,172 @@
+@use "./abstracts" as a;
+
+.home-navbar {
+  @include a.flex(row);
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 1rem;
+
+  .hamburger-menu {
+    font-size: 1.3em;
+    cursor: pointer;
+  }
+
+  .mid {
+    @include a.flex(row);
+    margin-right: 20rem;
+    gap: 1rem;
+    align-items: center;
+    font-size: 1.3em;
+
+    div {
+      display: flex;
+      gap: 1rem;
+
+      .input-search {
+        width: 20rem;
+        padding: 0.3em;
+      }
+
+      .btn-search {
+        width: 3rem;
+        cursor: pointer;
+        color: a.$color-white;
+        background-color: a.$primary-color;
+      }
+    }
+  }
+}
+
+.center {
+  @include a.flex(row);
+  height: 100vh;
+}
+
+.asideDisplay {
+  display: inline-block;
+}
+
+.asideHide {
+  display: none;
+}
+
+.side-bar {
+  padding: 1.2rem;
+  border-right: 1px solid a.$color-black;
+
+  .aside-inner {
+    @include a.flex(column);
+    gap: 1.3rem;
+    padding-top: 4rem;
+  }
+}
+
+.sidebar-icon svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.sidebar-icon svg:hover {
+  background-color: a.$primary-color-op;
+  border-radius: 0.5rem;
+  padding: 0.5px;
+}
+
+.sideBar-item {
+  color: a.$primary-color;
+  @include a.flex(row);
+  align-items: center;
+  gap: 1.5rem;
+
+  #sideBar-title,
+  .sidebar-icon {
+    cursor: pointer;
+  }
+
+  #sideBar-title:hover {
+    text-decoration: underline;
+  }
+}
+
+.main {
+  margin: 2rem;
+  width: 100%;
+
+  .takeANote-input-container {
+    @include a.inputPosition;
+
+    .takeANote-input {
+      @include a.inputStyle;
+    }
+  }
+
+  .addNote-input-container {
+    @include a.inputPosition;
+
+    .addANote-input {
+      @include a.inputStyle;
+      border-bottom: none;
+    }
+
+    .addANote-input-ext {
+      @include a.inputStyle;
+      border-top: none;
+    }
+  }
+}
+
+.addNote-inp-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+
+  .left-addNote-inp-btns,
+  .right-addNote-inp-btns {
+    display: flex;
+    gap: 1rem;
+
+    .btn {
+      cursor: pointer;
+      color: a.$color-white;
+      background-color: a.$primary-color;
+      padding: 0.5em;
+      border-radius: 0.5em;
+    }
+  }
+}
+
+.inner-main-two {
+  border: 1px solid black;
+  height: 70%;
+  margin-top: 2rem;
+}
+
+.input-dropDown {
+  border: 1px solid a.$color-white;
+  width: 20%;
+  z-index: -10;
+  position: fixed;
+  left: 31rem;
+  background-color: a.$primary-color-op2;
+  color: a.$color-white;
+  border-radius: 0.5rem;
+  display: block;
+
+  p {
+    cursor: pointer;
+    padding-left: 0.5rem;
+  }
+
+  p:hover {
+    background-color: a.$primary-color;
+  }
+}
+
+#moreDropDownAppear {
+  display: block;
+}
+
+#moreDropDownHide {
+  display: none;
+}
