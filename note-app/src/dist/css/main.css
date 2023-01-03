@@ -28,9 +28,13 @@
 }
 .intro-page-container .right-side {
   width: 60%;
+  padding: 1rem;
 }
 .intro-page-container .right-side .intro-img-container {
-  margin-top: 7rem;
+  height: 100%;
+}
+.intro-page-container .right-side .intro-img-container img {
+  height: 100%;
 }
 
 .heading h1 {

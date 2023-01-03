@@ -4,11 +4,17 @@ import { BsSearch } from "react-icons/bs";
 import { TfiViewList } from "react-icons/tfi";
 import { sideBarData } from "../Data/SidebarData";
 import { BsFillPinFill, BsThreeDotsVertical } from "react-icons/bs";
+import { useHomePage } from "../Contexts/HomepageContext";
 
 export const Homepage = () => {
+  const { state, dispatch } = useHomePage();
+
   const [displaySideBar, setDisplaySideBar] = useState<boolean>(false);
   const [inputFocusToggle, setInputFocusToggle] = useState<boolean>(true);
   const [moreToggle, setMoreToggle] = useState<boolean>(false);
+
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
   const sideBarHandler = () => {
     setDisplaySideBar(!displaySideBar);
@@ -20,6 +26,26 @@ export const Homepage = () => {
 
   const moreBtnHandler = () => {
     setMoreToggle(!moreToggle);
+  };
+
+  const titleChangeHandler = (titleVal: string) => {
+    setTitle(titleVal);
+  };
+
+  const noteContentChangeHandler = (contentVal: string) => {
+    setContent(contentVal);
+  };
+
+  const addNoteHandler = () => {
+    if (!title && !content) {
+      console.log("No title");
+    } else {
+      dispatch({
+        type: "addNote",
+        titlePayload: title,
+        ContentPayload: content,
+      });
+    }
   };
 
   return (
@@ -78,22 +104,31 @@ export const Homepage = () => {
               </div>
             ) : (
               <div className="addNote-input-container">
-                <input
-                  className="addANote-input"
-                  type="text"
-                  placeholder="Enter title"
-                ></input>
-                <input
-                  type="text"
-                  className="addANote-input-ext"
-                  placeholder="Take a note..."
-                ></input>
+                <form>
+                  <input
+                    value={title}
+                    className="addANote-input"
+                    type="text"
+                    placeholder="Enter title..."
+                    onChange={(e) => titleChangeHandler(e.target.value)}
+                  ></input>
+
+                  <input
+                    value={content}
+                    type="text"
+                    className="addANote-input-ext"
+                    placeholder="Take a note..."
+                    onChange={(e) => noteContentChangeHandler(e.target.value)}
+                  ></input>
+                </form>
                 <div className="addNote-inp-btns">
                   <div className="left-addNote-inp-btns">
                     <button className="btn" onClick={inputFocusHandler}>
                       Close
                     </button>
-                    <button className="btn">Add Note</button>
+                    <button className="btn" onClick={addNoteHandler}>
+                      Add Note
+                    </button>
                   </div>
 
                   <div className="right-addNote-inp-btns">

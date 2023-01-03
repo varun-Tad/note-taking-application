@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Button } from "../Components/Button";
 import Introimg from "../images/intro-image.svg";
 import "../dist/css/main.css";
@@ -12,7 +12,7 @@ export const Intropage = () => {
   };
 
   return (
-    <>
+    <div className="introPage">
       <div className="intro-page-container">
         <div className="left-side">
           <div className="left-side-inner">
@@ -41,13 +41,13 @@ export const Intropage = () => {
           </div>
         </div>
         <div className="right-side">
-          <div className="signOut-btn-container"></div>
+          {/* <div className="signOut-btn-container"></div> */}
 
           <div className="intro-img-container">
-            <img src={Introimg} alt="intro" />
+            <img className="introImage" src={Introimg} alt="intro" />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
